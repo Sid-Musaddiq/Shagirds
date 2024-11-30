@@ -1,9 +1,28 @@
-// In src/App.js
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Home from "./pages/Home";
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
+	
+
 function App() {
   return (
-    <div className="bg-blue-500 text-white min-h-screen flex items-center justify-center">
-      <h1 className="text-4xl font-bold">Welcome to My Freelance Platform</h1>
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col bg-gray-100">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/signup" element={<Signup />} />
+			<Route path="/login" element={<Login />} />
+          </Routes>
+
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
